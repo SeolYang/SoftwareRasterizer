@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Files">
+      <UniqueIdentifier>{1aee9c90-3d3f-4835-aeb1-5b7339a1e906}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Resource">
+      <UniqueIdentifier>{a10e1e82-233c-41a2-8e8b-e1e2d5f340b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Source">
+      <UniqueIdentifier>{6d8337a5-98bd-449c-b14c-67bdec6d5723}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Source\Math">
+      <UniqueIdentifier>{0c41c3c4-724f-4d0b-8cc4-559352f1b815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Source\Data Structure">
+      <UniqueIdentifier>{0d34adc0-c052-41aa-86bd-22a5e799f77c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\Vector2.h">
+      <Filter>Files\Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Vector3.h">
+      <Filter>Files\Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Vector4.h">
+      <Filter>Files\Source\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Matrix4x4.h">
+      <Filter>Files\Source\Math</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Vector2.cpp">
+      <Filter>Files\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Vector3.cpp">
+      <Filter>Files\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Vector4.cpp">
+      <Filter>Files\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Matrix4x4.cpp">
+      <Filter>Files\Source\Math</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
