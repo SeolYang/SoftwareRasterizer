@@ -154,6 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Src\MathUtils.h" />
     <ClInclude Include="Src\Matrix4x4.h" />
     <ClInclude Include="Src\stdafx.h" />
     <ClInclude Include="Src\Vector2.h" />

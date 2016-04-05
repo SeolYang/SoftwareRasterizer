@@ -190,6 +190,7 @@ bool Vector3::IsZero() const
 std::ostream& operator<<(std::ostream& Os, const Vector3& InV)
 {
 	Os << "(" << InV.X << ", " << InV.Y << ", " << InV.Z << ")";
+	return Os;
 }
 
 std::string Vector3::ToString() const
