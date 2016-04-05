@@ -52,6 +52,7 @@ public:
 
 	bool IsZero() const;
 
+	friend std::ostream& operator<<(std::ostream& Os, const Vector2& InV);
 	std::string ToString() const;
 
 public:

@@ -187,6 +187,11 @@ bool Vector3::IsZero() const
 	return (X == 0.0f) && (Y == 0.0f) && (Z == 0.0f);
 }
 
+std::ostream& operator<<(std::ostream& Os, const Vector3& InV)
+{
+	Os << "(" << InV.X << ", " << InV.Y << ", " << InV.Z << ")";
+}
+
 std::string Vector3::ToString() const
 {
 	return '(' + std::to_string(X) + ", " + std::to_string(Y) + ", " + std::to_string(Z) + ")";

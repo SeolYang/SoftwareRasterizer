@@ -230,6 +230,12 @@ bool Vector4::IsZero4() const
 	return (X == 0.0f) && (Y == 0.0f) && (Z == 0.0f) && (W == 0.0f);
 }
 
+std::ostream& operator<<(std::ostream& Os, const Vector4& InV)
+{
+	Os << "(" << InV.X << ", " << InV.Y << ", " << InV.Z << ", " << InV.W << ")";
+	return Os;
+}
+
 std::string Vector4::ToString() const
 {
 	return '(' + std::to_string(X) + ", " + std::to_string(Y) + "," + std::to_string(Z) + ", " + std::to_string(W) + ")";

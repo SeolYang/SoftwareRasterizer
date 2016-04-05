@@ -162,6 +162,12 @@ bool Vector2::IsZero() const
 	return (X == 0.0f) && (Y == 0.0f);
 }
 
+std::ostream& ::operator<<(std::ostream& Os, const Vector2& InV)
+{
+	Os << "(" << InV.X << ", " << InV.Y << ")";
+	return Os;
+}
+
 std::string Vector2::ToString() const
 {
 	return '(' + std::to_string(X) + ", " + std::to_string(Y) + ")";

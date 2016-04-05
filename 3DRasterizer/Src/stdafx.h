@@ -7,7 +7,8 @@
 #include <vector>
 #include <memory>
 
+#include "MathUtils.h"
+
 #ifdef _MSC_VER
 #define MS_ALIGN(N) __declspec(align(N))
 #endif
-

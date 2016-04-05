@@ -60,6 +60,7 @@ public:
 	bool IsZero3() const;
 	bool IsZero4() const;
 
+	friend std::ostream& operator<<(std::ostream& Os, const Vector4& InV);
 	std::string ToString() const;
 
 public:
