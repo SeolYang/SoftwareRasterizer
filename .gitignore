@@ -28,3 +28,9 @@
 *.app
 
 *.sdf
+*.opensdf
+
+*.idb
+*.tlog
+*.log
+*.lastbuildstate

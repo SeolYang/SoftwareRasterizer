@@ -16,6 +16,12 @@
     <Filter Include="Files\Source\Data Structure">
       <UniqueIdentifier>{0d34adc0-c052-41aa-86bd-22a5e799f77c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Files\Source\Precompiled">
+      <UniqueIdentifier>{4a260b95-03f8-43c8-b24b-db6bcef97940}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Source\Application">
+      <UniqueIdentifier>{638452b0-b85c-4daa-9dc5-0cf4fdea3270}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Vector2.h">
@@ -30,6 +36,9 @@
     <ClInclude Include="Src\Matrix4x4.h">
       <Filter>Files\Source\Math</Filter>
     </ClInclude>
+    <ClInclude Include="Src\stdafx.h">
+      <Filter>Files\Source\Precompiled</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Vector2.cpp">
@@ -43,6 +52,12 @@
     </ClCompile>
     <ClCompile Include="Src\Matrix4x4.cpp">
       <Filter>Files\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\stdafx.cpp">
+      <Filter>Files\Source\Precompiled</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\main.cpp">
+      <Filter>Files\Source\Application</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
