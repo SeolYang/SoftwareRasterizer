@@ -297,3 +297,13 @@ std::string Vector4::ToString() const
 {
 	return '(' + std::to_string(X) + ", " + std::to_string(Y) + "," + std::to_string(Z) + ", " + std::to_string(W) + ")";
 }
+
+Vector2 Vector4::ToVector2() const
+{
+	return Vector2(X, Y);
+}
+
+Vector3 Vector4::ToVector3() const
+{
+	return Vector3(X, Y, Z);
+}

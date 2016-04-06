@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "MathUtils.h"
-#include "Vector.h"
+#include "Vector3.h"
+#include "Vector4.h"
+#include "Vector2.h"
 
 Vector2 Vector2::Zero(0.0f, 0.0f);
 Vector2 Vector2::One(1.0f, 1.0f);
@@ -214,4 +216,21 @@ std::ostream& ::operator<<(std::ostream& Os, const Vector2& InV)
 std::string Vector2::ToString() const
 {
 	return '(' + std::to_string(X) + ", " + std::to_string(Y) + ")";
+}
+
+Vector3 Vector2::ToVector3() const
+{
+	return Vector3(X, Y, 0.0f);
+}
+
+Vector4 Vector2::ToVector4(bool bIsPoint = false) const
+{
+	if (bIsPoint)
+	{
+		return Vector4(X, Y, 0.0f, 0.0f);
+	}
+	else
+	{
+		return Vector4(X, Y);
+	}
 }

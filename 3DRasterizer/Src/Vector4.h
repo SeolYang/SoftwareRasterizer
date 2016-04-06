@@ -66,6 +66,9 @@ public:
 	friend std::ostream& operator<<(std::ostream& Os, const Vector4& InV);
 	std::string ToString() const;
 
+	Vector2 ToVector2() const;
+	Vector3 ToVector3() const;
+
 public:
 	static Vector4 Right;
 	static Vector4 Up;

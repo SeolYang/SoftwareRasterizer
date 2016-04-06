@@ -58,6 +58,9 @@ public:
 	friend std::ostream& operator<<(std::ostream& Os, const Vector2& InV);
 	std::string ToString() const;
 
+	Vector3 ToVector3() const;
+	Vector4 ToVector4(bool bIsPoint = false) const;
+
 public:
 	static Vector2 Zero;
 	static Vector2 One;
