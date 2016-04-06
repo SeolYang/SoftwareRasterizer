@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "MathUtils.h"
 #include "Vector.h"
 
 Vector4 Vector4::Right(1.0f, 0.0f, 0.0f, 1.0f);

@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "MathUtils.h"
 #include "Vector.h"
 
 Vector2 Vector2::Zero(0.0f, 0.0f);
