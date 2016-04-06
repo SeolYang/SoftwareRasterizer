@@ -1,5 +1,8 @@
 #pragma once
 
+class Vector2;
+class Vector4;
+
 /*
 * This class is representing 3D Vector.
 */

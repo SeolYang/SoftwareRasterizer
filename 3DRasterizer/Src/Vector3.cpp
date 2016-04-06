@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "MathUtils.h"
-#include "Vector2.h"
-#include "Vector4.h"
-#include "Vector3.h"
+#include "Vector.h"
 
 Vector3 Vector3::Zero(0.0f, 0.0f, 0.0f);
 Vector3 Vector3::One(1.0f, 1.0f, 1.0f);

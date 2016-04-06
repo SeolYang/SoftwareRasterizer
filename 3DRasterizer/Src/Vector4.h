@@ -1,5 +1,8 @@
 #pragma once
 
+class Vector2;
+class Vector3;
+
 /*
 * This class is representing 4D homogeneous coordinates.
 */
