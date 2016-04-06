@@ -42,6 +42,9 @@
     <ClInclude Include="Src\MathUtils.h">
       <Filter>Files\Source\Math</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Vector.h">
+      <Filter>Files\Source\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Vector2.cpp">

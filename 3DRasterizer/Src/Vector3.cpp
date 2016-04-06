@@ -1,7 +1,5 @@
 #include "stdafx.h"
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Vector4.h"
+#include "Vector.h"
 
 Vector3 Vector3::Zero(0.0f, 0.0f, 0.0f);
 Vector3 Vector3::One(1.0f, 1.0f, 1.0f);
@@ -39,6 +37,56 @@ Vector3::Vector3(const Vector3& InV) :
 	Z(InV.Z)
 {
 
+}
+
+float& Vector3::operator[](int ElementIndex)
+{
+	switch (ElementIndex)
+	{
+	case 0:
+		return X;
+
+	case 1:
+		return Y;
+
+	case 2:
+		return Z;
+
+	default:
+		if (ElementIndex < 0)
+		{
+			return X;
+		}
+		else
+		{
+			return Z;
+		}
+	}
+}
+
+float Vector3::operator[](int ElementIndex) const
+{
+	switch (ElementIndex)
+	{
+	case 0:
+		return X;
+
+	case 1:
+		return Y;
+
+	case 2:
+		return Z;
+
+	default:
+		if (ElementIndex < 0)
+		{
+			return X;
+		}
+		else
+		{
+			return Z;
+		}
+	}
 }
 
 Vector3& Vector3::operator=(float InF)

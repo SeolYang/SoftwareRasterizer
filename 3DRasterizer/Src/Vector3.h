@@ -18,6 +18,9 @@ public:
 	Vector3(const Vector2& InV, float InF = 0.0f);
 	Vector3(const Vector3& InV);
 
+	float& operator[](int ElementIndex);
+	float operator[](int ElementIndex) const;
+
 	Vector3& operator=(float InF);
 	Vector3& operator=(const Vector3& InV);
 

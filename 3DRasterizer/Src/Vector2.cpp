@@ -1,7 +1,5 @@
 #include "stdafx.h"
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Vector4.h"
+#include "Vector.h"
 
 Vector2 Vector2::Zero(0.0f, 0.0f);
 Vector2 Vector2::One(1.0f, 1.0f);
@@ -27,6 +25,50 @@ Vector2::Vector2(const Vector2& InV) :
 	Y(InV.Y)
 {
 
+}
+
+float& Vector2::operator[](int ElementIndex)
+{
+	switch (ElementIndex)
+	{
+	case 0:
+		return X;
+
+	case 1:
+		return Y;
+
+	default:
+		if (ElementIndex < 0)
+		{
+			return X;
+		}
+		else
+		{
+			return Y;
+		}
+	}
+}
+
+float Vector2::operator[](int ElementIndex) const
+{
+	switch (ElementIndex)
+	{
+	case 0:
+		return X;
+
+	case 1:
+		return Y;
+
+	default:
+		if (ElementIndex < 0)
+		{
+			return X;
+		}
+		else
+		{
+			return Y;
+		}
+	}
 }
 
 Vector2& Vector2::operator=(float InF)

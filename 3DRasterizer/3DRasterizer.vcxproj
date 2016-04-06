@@ -157,6 +157,7 @@
     <ClInclude Include="Src\MathUtils.h" />
     <ClInclude Include="Src\Matrix4x4.h" />
     <ClInclude Include="Src\stdafx.h" />
+    <ClInclude Include="Src\Vector.h" />
     <ClInclude Include="Src\Vector2.h" />
     <ClInclude Include="Src\Vector3.h" />
     <ClInclude Include="Src\Vector4.h" />

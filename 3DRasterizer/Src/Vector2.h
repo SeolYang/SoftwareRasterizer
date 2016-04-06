@@ -15,6 +15,9 @@ public:
 	Vector2(float InX = 0.0f, float InY = 0.0f);
 	Vector2(const Vector2& InV);
 
+	float& operator[](int ElementIndex);
+	float operator[](int ElementIndex) const;
+
 	Vector2& operator=(float InF);
 	Vector2& operator=(const Vector2& InV);
 
