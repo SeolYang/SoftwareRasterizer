@@ -12,12 +12,13 @@ RenderTarget::RenderTarget(UINT InWidth, UINT InHeight) :
 RenderTarget::RenderTarget(const RenderTarget& InTarget) :
 	RenderTarget(InTarget.Width, InTarget.Height)
 {
-	InitBitmap();
 	memcpy(BitmapBits, InTarget.BitmapBits, sizeof(DWORD) * Size);
 }
 
 RenderTarget::RenderTarget(RenderTarget&& InTarget) :
-	RenderTarget(InTarget.Width, InTarget.Height)
+	Width(InTarget.Width),
+	Height(InTarget.Height),
+	Size(InTarget.Size)
 {
 	BitmapBits = InTarget.BitmapBits;
 	Bitmap = InTarget.Bitmap;

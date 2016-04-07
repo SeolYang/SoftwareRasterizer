@@ -7,6 +7,8 @@
 #include <vector>
 #include <memory>
 
+#include <d3d9.h>
+
 #include "MathUtils.h"
 
 #ifdef _MSC_VER
