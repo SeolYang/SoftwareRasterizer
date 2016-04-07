@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Vector.h"
 #include "RenderTarget.h"
 
 RenderTarget::RenderTarget(UINT InWidth, UINT InHeight) :
@@ -56,9 +57,33 @@ DWORD RenderTarget::GetPixel(UINT PixelIndex) const
 	return BitmapBits[PixelIndex];
 }
 
+DWORD RenderTarget::GetPixel(UINT InX, UINT InY) const
+{
+	return BitmapBits[(InY * Width) + InX];
+}
+
+DWORD RenderTarget::GetPixel(const Vector2& InV) const
+{
+	UINT X = static_cast<UINT>(InV.X);
+	UINT Y = static_cast<UINT>(InV.Y);
+	return BitmapBits[(X * Width) + Y];
+}
+
 void RenderTarget::SetPixel(UINT PixelIndex, DWORD Color)
 {
 	BitmapBits[PixelIndex] = Color;
+}
+
+void RenderTarget::SetPixel(UINT InX, UINT InY, DWORD Color)
+{
+	BitmapBits[(InY * Width) + InX] = Color;
+}
+
+void RenderTarget::SetPixel(const Vector2& InV, DWORD Color)
+{
+	UINT X = static_cast<UINT>(InV.X);
+	UINT Y = static_cast<UINT>(InV.Y);
+	BitmapBits[(X * Width) + Y] = Color;
 }
 
 HBITMAP RenderTarget::GetBitmap() const

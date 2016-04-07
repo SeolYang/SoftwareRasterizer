@@ -1,5 +1,9 @@
 #pragma once
 
+
+/*
+* This class representing Vertex.
+*/
 MS_ALIGN(16) class Vertex
 {
 public:

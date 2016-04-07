@@ -48,6 +48,9 @@
     <ClInclude Include="Src\RenderTarget.h">
       <Filter>Files\Source\Application</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Vertex.h">
+      <Filter>Files\Source\Math</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Vector2.cpp">
@@ -65,11 +68,14 @@
     <ClCompile Include="Src\stdafx.cpp">
       <Filter>Files\Source\Precompiled</Filter>
     </ClCompile>
-    <ClCompile Include="Src\main.cpp">
-      <Filter>Files\Source\Application</Filter>
-    </ClCompile>
     <ClCompile Include="Src\RenderTarget.cpp">
       <Filter>Files\Source\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Vertex.cpp">
+      <Filter>Files\Source\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\AppEntry.cpp">
+      <Filter>Files\Source</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

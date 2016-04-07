@@ -1,6 +1,9 @@
 #pragma once
 
-/* RenderTarget Reference:
+class Vector2;
+
+/* 
+* RenderTarget Reference:
 	https://en.wikipedia.org/wiki/Render_Target,
 	http://blog.naver.com/fish19/120045605984
 */
@@ -16,7 +19,11 @@ public:
 	UINT GetHeight() const;
 
 	DWORD GetPixel(UINT PixelIndex) const;
+	DWORD GetPixel(UINT InX, UINT InY) const;
+	DWORD GetPixel(const Vector2& InPosition) const;
 	void SetPixel(UINT PixelIndex, DWORD Color);
+	void SetPixel(UINT InX, UINT InY, DWORD Color);
+	void SetPixel(const Vector2& InPosition, DWORD Color);
 
 	HBITMAP GetBitmap() const;
 
