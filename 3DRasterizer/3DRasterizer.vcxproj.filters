@@ -10,72 +10,132 @@
     <Filter Include="Files\Source">
       <UniqueIdentifier>{6d8337a5-98bd-449c-b14c-67bdec6d5723}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Files\Source\Math">
+    <Filter Include="Files\Source\SR">
+      <UniqueIdentifier>{459b715f-9e95-49fc-9fda-4db713654365}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Source\SR\Math">
       <UniqueIdentifier>{0c41c3c4-724f-4d0b-8cc4-559352f1b815}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Files\Source\Data Structure">
+    <Filter Include="Files\Source\SR\Data Structure">
       <UniqueIdentifier>{0d34adc0-c052-41aa-86bd-22a5e799f77c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Files\Source\Precompiled">
+    <Filter Include="Files\Source\SR\Application">
+      <UniqueIdentifier>{638452b0-b85c-4daa-9dc5-0cf4fdea3270}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Source\SR\Precompiled">
       <UniqueIdentifier>{4a260b95-03f8-43c8-b24b-db6bcef97940}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Files\Source\Application">
-      <UniqueIdentifier>{638452b0-b85c-4daa-9dc5-0cf4fdea3270}</UniqueIdentifier>
+    <Filter Include="Files\Source\Demo/Tests">
+      <UniqueIdentifier>{9dcd4f01-ec3e-412f-8658-30c05c25e0bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Source\Demo/Tests\Startfield">
+      <UniqueIdentifier>{3ec31728-0ff5-49e0-96d4-1ba065d69151}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Source\Demo/Tests\ScanBuffer">
+      <UniqueIdentifier>{e88b6495-20a0-4c40-afd1-61e5b7e33cad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Files\Source\Demo/Tests\TriangleTransform">
+      <UniqueIdentifier>{5b127645-35e7-46bd-a45a-200a40cb7158}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Vector2.h">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClInclude>
     <ClInclude Include="Src\Vector3.h">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClInclude>
     <ClInclude Include="Src\Vector4.h">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClInclude>
     <ClInclude Include="Src\Matrix4x4.h">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClInclude>
     <ClInclude Include="Src\stdafx.h">
-      <Filter>Files\Source\Precompiled</Filter>
+      <Filter>Files\Source\SR\Precompiled</Filter>
     </ClInclude>
     <ClInclude Include="Src\MathUtils.h">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClInclude>
     <ClInclude Include="Src\Vector.h">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClInclude>
     <ClInclude Include="Src\RenderTarget.h">
-      <Filter>Files\Source\Application</Filter>
+      <Filter>Files\Source\SR\Application</Filter>
     </ClInclude>
     <ClInclude Include="Src\Vertex.h">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application.h">
+      <Filter>Files\Source\SR\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\DepthBuffer.h">
+      <Filter>Files\Source\SR\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Rasterizer.h">
+      <Filter>Files\Source\SR\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Memory.h">
+      <Filter>Files\Source\SR\Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Demo\StarfieldApp.h">
+      <Filter>Files\Source\Demo/Tests\Startfield</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Demo\ScanBufferApp.h">
+      <Filter>Files\Source\Demo/Tests\ScanBuffer</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Demo\TriangleTransformApp.h">
+      <Filter>Files\Source\Demo/Tests\TriangleTransform</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Edge.h">
+      <Filter>Files\Source\SR\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Vector2.cpp">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClCompile>
     <ClCompile Include="Src\Vector3.cpp">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClCompile>
     <ClCompile Include="Src\Vector4.cpp">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClCompile>
     <ClCompile Include="Src\Matrix4x4.cpp">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClCompile>
     <ClCompile Include="Src\stdafx.cpp">
-      <Filter>Files\Source\Precompiled</Filter>
+      <Filter>Files\Source\SR\Precompiled</Filter>
     </ClCompile>
     <ClCompile Include="Src\RenderTarget.cpp">
-      <Filter>Files\Source\Application</Filter>
+      <Filter>Files\Source\SR\Application</Filter>
     </ClCompile>
     <ClCompile Include="Src\Vertex.cpp">
-      <Filter>Files\Source\Math</Filter>
+      <Filter>Files\Source\SR\Math</Filter>
     </ClCompile>
     <ClCompile Include="Src\AppEntry.cpp">
-      <Filter>Files\Source</Filter>
+      <Filter>Files\Source\SR\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application.cpp">
+      <Filter>Files\Source\SR\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\DepthBuffer.cpp">
+      <Filter>Files\Source\SR\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Rasterizer.cpp">
+      <Filter>Files\Source\SR\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Demo\StarfieldApp.cpp">
+      <Filter>Files\Source\Demo/Tests\Startfield</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Demo\ScanBufferApp.cpp">
+      <Filter>Files\Source\Demo/Tests\ScanBuffer</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Demo\TriangleTransformApp.cpp">
+      <Filter>Files\Source\Demo/Tests\TriangleTransform</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Edge.cpp">
+      <Filter>Files\Source\SR\Math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

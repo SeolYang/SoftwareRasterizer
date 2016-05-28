@@ -42,16 +42,6 @@ RenderTarget::~RenderTarget()
 	}
 }
 
-UINT RenderTarget::GetWidth() const
-{
-	return Width;
-}
-
-UINT RenderTarget::GetHeight() const
-{
-	return Height;
-}
-
 DWORD RenderTarget::GetPixel(UINT PixelIndex) const
 {
 	return BitmapBits[PixelIndex];
@@ -62,11 +52,11 @@ DWORD RenderTarget::GetPixel(UINT InX, UINT InY) const
 	return BitmapBits[(InY * Width) + InX];
 }
 
-DWORD RenderTarget::GetPixel(const Vector2& InV) const
+DWORD RenderTarget::GetPixel(const Vector2& InPosition) const
 {
-	UINT X = static_cast<UINT>(InV.X);
-	UINT Y = static_cast<UINT>(InV.Y);
-	return BitmapBits[(X * Width) + Y];
+	return BitmapBits[
+		(static_cast<UINT>(InPosition.Y * Width) +
+		static_cast<UINT>(InPosition.X))];
 }
 
 void RenderTarget::SetPixel(UINT PixelIndex, DWORD Color)
@@ -79,16 +69,11 @@ void RenderTarget::SetPixel(UINT InX, UINT InY, DWORD Color)
 	BitmapBits[(InY * Width) + InX] = Color;
 }
 
-void RenderTarget::SetPixel(const Vector2& InV, DWORD Color)
+void RenderTarget::SetPixel(const Vector2& InPosition, DWORD Color)
 {
-	UINT X = static_cast<UINT>(InV.X);
-	UINT Y = static_cast<UINT>(InV.Y);
-	BitmapBits[(X * Width) + Y] = Color;
-}
-
-HBITMAP RenderTarget::GetBitmap() const
-{
-	return Bitmap;
+	BitmapBits[
+		(static_cast<UINT>(InPosition.Y) * Width)
+		+ static_cast<UINT>(InPosition.X)] = Color;
 }
 
 void RenderTarget::Clear(DWORD Color)

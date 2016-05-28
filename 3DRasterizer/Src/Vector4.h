@@ -18,6 +18,7 @@ public:
 	float W;
 
 public:
+	DEFINE_ALIGNED_NEW_DELETE
 	Vector4(float InF);
 	Vector4(float InX = 0.0f, float InY = 0.0f , float InZ = 0.0f, float InW = 1.0f);
 	Vector4(const Vector2& InV1, const  Vector2& InV2);

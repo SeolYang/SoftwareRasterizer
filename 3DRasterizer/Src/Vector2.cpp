@@ -161,9 +161,19 @@ float Vector2::operator|(const Vector2& InV) const
 	return (X * InV.X) + (Y * InV.Y);
 }
 
+float Vector2::operator^(const Vector2& InV) const
+{
+	return (X * InV.Y) - (Y * InV.X);
+}
+
 float Vector2::DotProduct(const Vector2& A, const Vector2& B)
 {
 	return (A | B);
+}
+
+float Vector2::CrossProduct(const Vector2& A, const Vector2& B)
+{
+	return (A ^ B);
 }
 
 float Vector2::Size() const

@@ -15,17 +15,18 @@ public:
 	RenderTarget(RenderTarget&& InTarget);
 	~RenderTarget();
 
-	UINT GetWidth() const;
-	UINT GetHeight() const;
+	inline UINT GetWidth() const { return Width; }
+	inline UINT GetHeight() const { return Height; }
 
 	DWORD GetPixel(UINT PixelIndex) const;
 	DWORD GetPixel(UINT InX, UINT InY) const;
 	DWORD GetPixel(const Vector2& InPosition) const;
+
 	void SetPixel(UINT PixelIndex, DWORD Color);
 	void SetPixel(UINT InX, UINT InY, DWORD Color);
 	void SetPixel(const Vector2& InPosition, DWORD Color);
 
-	HBITMAP GetBitmap() const;
+	inline HBITMAP GetBitmap() const { return Bitmap; }
 
 	void Clear(DWORD Color);
 
@@ -36,7 +37,9 @@ private:
 	UINT Width;
 	UINT Height;
 	UINT Size;
-	DWORD* BitmapBits;
 	HBITMAP Bitmap;
+
+public:
+	DWORD* BitmapBits;
 
 };

@@ -16,9 +16,10 @@ public:
 	float Z;
 
 public:
-	Vector3(float InF);
-	Vector3(float InX = 0.0f, float InY = 0.0f, float InZ = 0.0f);
-	Vector3(const Vector2& InV, float InF = 0.0f);
+	DEFINE_ALIGNED_NEW_DELETE
+	Vector3(float InF = 0.0f);
+	Vector3(float InX, float InY, float InZ);
+	Vector3(const Vector2& InV, float InF);
 	Vector3(const Vector3& InV);
 
 	float& operator[](int ElementIndex);

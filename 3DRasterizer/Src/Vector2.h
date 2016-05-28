@@ -14,8 +14,9 @@ public:
 	float Y;
 
 public:
-	Vector2(float InF);
-	Vector2(float InX = 0.0f, float InY = 0.0f);
+	DEFINE_ALIGNED_NEW_DELETE
+	Vector2(float InF = 0.0f);
+	Vector2(float InX, float InY);
 	Vector2(const Vector2& InV);
 
 	float& operator[](int ElementIndex);
@@ -42,8 +43,10 @@ public:
 	Vector2 operator/(const Vector2& InV) const;
 
 	float operator|(const Vector2& InV) const;
+	float operator^(const Vector2& InV) const;
 
 	static float DotProduct(const Vector2& A, const Vector2& B);
+	static float CrossProduct(const Vector2& A, const Vector2& B);
 
 	float Size() const;
 	

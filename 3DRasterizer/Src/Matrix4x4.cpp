@@ -4,63 +4,55 @@
 #include "Matrix4x4.h"
 
 Matrix4x4 Matrix4x4::Identity(
-	Vector4(1.0f, 0.0f, 0.0f, 0.0f),
-	Vector4(0.0f, 1.0f, 0.0f, 0.0f),
-	Vector4(0.0f, 0.0f, 1.0f, 0.0f),
-	Vector4(0.0f, 0.0f, 0.0f, 1.0f)
-	);
+	1.0f, 0.0f, 0.0f, 0.0f,
+	0.0f, 1.0f, 0.0f, 0.0f,
+	0.0f, 0.0f, 1.0f, 0.0f,
+	0.0f, 0.0f, 0.0f, 1.0f);
 
 Matrix4x4::Matrix4x4(float InF) :
-	M11(InF), M12(InF), M13(InF), M14(InF),
-	M21(InF), M22(InF), M23(InF), M24(InF),
-	M31(InF), M32(InF), M33(InF), M34(InF),
-	M41(InF), M42(InF), M43(InF), M44(InF)
-{
-}
-
-Matrix4x4::Matrix4x4(float InM11, float InM12, float InM13, float InM14, float InM21, float InM22, float InM23, float InM24, float InM31, float InM32, float InM33, float InM34, float InM41, float InM42, float InM43, float InM44) :
-	M11(InM11), M12(InM12), M13(InM13), M14(InM14),
-	M21(InM21), M22(InM22), M23(InM23), M24(InM24),
-	M31(InM31), M32(InM32), M33(InM33), M34(InM34),
-	M41(InM41), M42(InM42), M43(InM43), M44(InM44)
+	Matrix4x4(
+		InF, InF, InF, InF,
+		InF, InF, InF, InF,
+		InF, InF, InF, InF,
+		InF, InF, InF, InF)
 {
 
 }
 
-Matrix4x4::Matrix4x4(const Vector4& InColumn1, const Vector4& InColumn2, const Vector4& InColumn3, const Vector4& InColumn4) :
-	M11(InColumn1.X), M12(InColumn2.X), M13(InColumn3.X), M14(InColumn4.X),
-	M21(InColumn1.Y), M22(InColumn2.Y), M23(InColumn3.Y), M24(InColumn4.Y),
-	M31(InColumn1.Z), M32(InColumn2.Z), M33(InColumn3.Z), M34(InColumn4.Z),
-	M41(InColumn1.W), M42(InColumn2.W), M43(InColumn3.W), M44(InColumn4.W)
+Matrix4x4::Matrix4x4(float InM11, float InM12, float InM13, float InM14, float InM21, float InM22, float InM23, float InM24, float InM31, float InM32, float InM33, float InM34, float InM41, float InM42, float InM43, float InM44)
 {
-
+	M[0][0] = InM11; M[0][1] = InM12; M[0][2] = InM13; M[0][3] = InM14;
+	M[1][0] = InM21; M[1][1] = InM22; M[1][2] = InM23; M[1][3] = InM24;
+	M[2][0] = InM31; M[2][1] = InM32; M[2][2] = InM33; M[2][3] = InM34;
+	M[3][0] = InM41; M[3][1] = InM42; M[3][2] = InM43; M[3][3] = InM44;
 }
 
 Matrix4x4::Matrix4x4(const Matrix4x4& InM) :
-	M11(InM.M11), M12(InM.M12), M13(InM.M13), M14(InM.M14),
-	M21(InM.M21), M22(InM.M22), M23(InM.M23), M24(InM.M24),
-	M31(InM.M31), M32(InM.M32), M33(InM.M33), M34(InM.M34),
-	M41(InM.M41), M42(InM.M42), M43(InM.M43), M44(InM.M44)
+	Matrix4x4(
+		InM.M[0][0], InM.M[0][1], InM.M[0][2], InM.M[0][3],
+		InM.M[1][0], InM.M[1][1], InM.M[1][2], InM.M[1][3],
+		InM.M[2][0], InM.M[2][1], InM.M[2][2], InM.M[2][3],
+		InM.M[3][0], InM.M[3][1], InM.M[3][2], InM.M[3][3])
 {
 
 }
 
 Matrix4x4& Matrix4x4::operator=(float Bias)
 {
-	M11 = M12 = M13 = M14 = Bias;
-	M21 = M22 = M23 = M24 = Bias;
-	M31 = M32 = M33 = M34 = Bias;
-	M41 = M42 = M43 = M44 = Bias;
+	M[0][0] = M[0][1] = M[0][2] = M[0][3] = Bias;
+	M[1][0] = M[1][1] = M[1][2] = M[1][3] = Bias;
+	M[2][0] = M[2][1] = M[2][2] = M[2][3] = Bias;
+	M[3][0] = M[3][1] = M[3][2] = M[3][3] = Bias;
 
 	return *this;
 }
 
 Matrix4x4& Matrix4x4::operator=(const Matrix4x4& InM)
 {
-	M11 = InM.M11; M12 = InM.M12; M13 = InM.M13; M14 = InM.M14;
-	M21 = InM.M21; M22 = InM.M22; M23 = InM.M23; M24 = InM.M24;
-	M31 = InM.M31; M32 = InM.M32; M33 = InM.M33; M34 = InM.M34;
-	M41 = InM.M41; M42 = InM.M42; M43 = InM.M43; M44 = InM.M44;
+	M[0][0] = InM.M[0][0]; M[0][1] = InM.M[0][1]; M[0][2] = InM.M[0][2]; M[0][3] = InM.M[0][3];
+	M[1][0] = InM.M[1][0]; M[1][1] = InM.M[1][1]; M[1][2] = InM.M[1][2]; M[1][3] = InM.M[1][3];
+	M[2][0] = InM.M[2][0]; M[2][1] = InM.M[2][1]; M[2][2] = InM.M[2][2]; M[2][3] = InM.M[2][3];
+	M[3][0] = InM.M[3][0]; M[3][1] = InM.M[3][1]; M[3][2] = InM.M[3][2]; M[3][3] = InM.M[3][3];
 
 	return *this;
 }
@@ -68,10 +60,10 @@ Matrix4x4& Matrix4x4::operator=(const Matrix4x4& InM)
 Matrix4x4 Matrix4x4::operator+(float Bias) const
 {
 	Matrix4x4 Mat(*this);
-	Mat.M11 += Bias; Mat.M12 += Bias; Mat.M13 += Bias; Mat.M14 += Bias;
-	Mat.M21 += Bias; Mat.M22 += Bias; Mat.M23 += Bias; Mat.M24 += Bias;
-	Mat.M31 += Bias; Mat.M32 += Bias; Mat.M33 += Bias; Mat.M34 += Bias;
-	Mat.M41 += Bias; Mat.M42 += Bias; Mat.M43 += Bias; Mat.M44 += Bias;
+	Mat.M[0][0] += Bias; Mat.M[0][1] += Bias; Mat.M[0][2] += Bias; Mat.M[0][3] += Bias;
+	Mat.M[1][0] += Bias; Mat.M[1][1] += Bias; Mat.M[1][2] += Bias; Mat.M[1][3] += Bias;
+	Mat.M[2][0] += Bias; Mat.M[2][1] += Bias; Mat.M[2][2] += Bias; Mat.M[2][3] += Bias;
+	Mat.M[3][0] += Bias; Mat.M[3][1] += Bias; Mat.M[3][2] += Bias; Mat.M[3][3] += Bias;
 
 	return Mat;
 }
@@ -79,10 +71,10 @@ Matrix4x4 Matrix4x4::operator+(float Bias) const
 Matrix4x4 Matrix4x4::operator+(const Matrix4x4& InM) const
 {
 	Matrix4x4 Mat(*this);
-	Mat.M11 += InM.M11; Mat.M12 += InM.M12; Mat.M13 += InM.M13; Mat.M14 += InM.M14;
-	Mat.M21 += InM.M21; Mat.M22 += InM.M22; Mat.M23 += InM.M23; Mat.M24 += InM.M24;
-	Mat.M31 += InM.M31; Mat.M32 += InM.M32; Mat.M33 += InM.M33; Mat.M34 += InM.M34;
-	Mat.M41 += InM.M41; Mat.M42 += InM.M42; Mat.M43 += InM.M43; Mat.M44 += InM.M44;
+	Mat.M[0][0] += InM.M[0][0]; Mat.M[0][1] += InM.M[0][1]; Mat.M[0][2] += InM.M[0][2]; Mat.M[0][3] += InM.M[0][3];
+	Mat.M[1][0] += InM.M[1][0]; Mat.M[1][1] += InM.M[1][1]; Mat.M[1][2] += InM.M[1][2]; Mat.M[1][3] += InM.M[1][3];
+	Mat.M[2][0] += InM.M[2][0]; Mat.M[2][1] += InM.M[2][1]; Mat.M[2][2] += InM.M[2][2]; Mat.M[2][3] += InM.M[2][3];
+	Mat.M[3][0] += InM.M[3][0]; Mat.M[3][1] += InM.M[3][1]; Mat.M[3][2] += InM.M[3][2]; Mat.M[3][3] += InM.M[3][3];
 
 	return Mat;
 }
@@ -90,10 +82,10 @@ Matrix4x4 Matrix4x4::operator+(const Matrix4x4& InM) const
 Matrix4x4 Matrix4x4::operator-(float Bias) const
 {
 	Matrix4x4 Mat(*this);
-	Mat.M11 -= Bias; Mat.M12 -= Bias; Mat.M13 -= Bias; Mat.M14 -= Bias;
-	Mat.M21 -= Bias; Mat.M22 -= Bias; Mat.M23 -= Bias; Mat.M24 -= Bias;
-	Mat.M31 -= Bias; Mat.M32 -= Bias; Mat.M33 -= Bias; Mat.M34 -= Bias;
-	Mat.M41 -= Bias; Mat.M42 -= Bias; Mat.M43 -= Bias; Mat.M44 -= Bias;
+	Mat.M[0][0] -= Bias; Mat.M[0][1] -= Bias; Mat.M[0][2] -= Bias; Mat.M[0][3] -= Bias;
+	Mat.M[1][0] -= Bias; Mat.M[1][1] -= Bias; Mat.M[1][2] -= Bias; Mat.M[1][3] -= Bias;
+	Mat.M[2][0] -= Bias; Mat.M[2][1] -= Bias; Mat.M[2][2] -= Bias; Mat.M[2][3] -= Bias;
+	Mat.M[3][0] -= Bias; Mat.M[3][1] -= Bias; Mat.M[3][2] -= Bias; Mat.M[3][3] -= Bias;
 
 	return Mat;
 }
@@ -101,10 +93,10 @@ Matrix4x4 Matrix4x4::operator-(float Bias) const
 Matrix4x4 Matrix4x4::operator-(const Matrix4x4& InM) const
 {
 	Matrix4x4 Mat(*this);
-	Mat.M11 -= InM.M11; Mat.M12 -= InM.M12; Mat.M13 -= InM.M13; Mat.M14 -= InM.M14;
-	Mat.M21 -= InM.M21; Mat.M22 -= InM.M22; Mat.M23 -= InM.M23; Mat.M24 -= InM.M24;
-	Mat.M31 -= InM.M31; Mat.M32 -= InM.M32; Mat.M33 -= InM.M33; Mat.M34 -= InM.M34;
-	Mat.M41 -= InM.M41; Mat.M42 -= InM.M42; Mat.M43 -= InM.M43; Mat.M44 -= InM.M44;
+	Mat.M[0][0] -= InM.M[0][0]; Mat.M[0][1] -= InM.M[0][1]; Mat.M[0][2] -= InM.M[0][2]; Mat.M[0][3] -= InM.M[0][3];
+	Mat.M[1][0] -= InM.M[1][0]; Mat.M[1][1] -= InM.M[1][1]; Mat.M[1][2] -= InM.M[1][2]; Mat.M[1][3] -= InM.M[1][3];
+	Mat.M[2][0] -= InM.M[2][0]; Mat.M[2][1] -= InM.M[2][1]; Mat.M[2][2] -= InM.M[2][2]; Mat.M[2][3] -= InM.M[2][3];
+	Mat.M[3][0] -= InM.M[3][0]; Mat.M[3][1] -= InM.M[3][1]; Mat.M[3][2] -= InM.M[3][2]; Mat.M[3][3] -= InM.M[3][3];
 
 	return Mat;
 }
@@ -112,10 +104,10 @@ Matrix4x4 Matrix4x4::operator-(const Matrix4x4& InM) const
 Matrix4x4 Matrix4x4::operator*(float Scale) const
 {
 	Matrix4x4 Mat(*this);
-	Mat.M11 *= Scale; Mat.M12 *= Scale; Mat.M13 *= Scale; Mat.M14 *= Scale;
-	Mat.M21 *= Scale; Mat.M22 *= Scale; Mat.M23 *= Scale; Mat.M24 *= Scale;
-	Mat.M31 *= Scale; Mat.M32 *= Scale; Mat.M33 *= Scale; Mat.M34 *= Scale;
-	Mat.M41 *= Scale; Mat.M42 *= Scale; Mat.M43 *= Scale; Mat.M44 *= Scale;
+	Mat.M[0][0] *= Scale; Mat.M[0][1] *= Scale; Mat.M[0][2] *= Scale; Mat.M[0][3] *= Scale;
+	Mat.M[1][0] *= Scale; Mat.M[1][1] *= Scale; Mat.M[1][2] *= Scale; Mat.M[1][3] *= Scale;
+	Mat.M[2][0] *= Scale; Mat.M[2][1] *= Scale; Mat.M[2][2] *= Scale; Mat.M[2][3] *= Scale;
+	Mat.M[3][0] *= Scale; Mat.M[3][1] *= Scale; Mat.M[3][2] *= Scale; Mat.M[3][3] *= Scale;
 
 	return Mat;
 }
@@ -123,10 +115,10 @@ Matrix4x4 Matrix4x4::operator*(float Scale) const
 Vector4 Matrix4x4::operator*(const Vector4& InV) const
 {
 	Vector4 Vector;
-	Vector.X = (M11 * InV.X) + (M12 * InV.Y) + (M13 * InV.Z) + (M14 * InV.W);
-	Vector.Y = (M21 * InV.X) + (M22 * InV.Y) + (M23 * InV.Z) + (M24 * InV.W);
-	Vector.Z = (M31 * InV.X) + (M32 * InV.Y) + (M33 * InV.Z) + (M34 * InV.W);
-	Vector.W = (M41 * InV.X) + (M42 * InV.Y) + (M43 * InV.Z) + (M44 * InV.W);
+	Vector.X = (M[0][0] * InV.X) + (M[0][1] * InV.Y) + (M[0][2] * InV.Z) + (M[0][3] * InV.W);
+	Vector.Y = (M[1][0] * InV.X) + (M[1][1] * InV.Y) + (M[1][2] * InV.Z) + (M[1][3] * InV.W);
+	Vector.Z = (M[2][0] * InV.X) + (M[2][1] * InV.Y) + (M[2][2] * InV.Z) + (M[2][3] * InV.W);
+	Vector.W = (M[3][0] * InV.X) + (M[3][1] * InV.Y) + (M[3][2] * InV.Z) + (M[3][3] * InV.W);
 
 	return Vector;
 }
@@ -134,25 +126,25 @@ Vector4 Matrix4x4::operator*(const Vector4& InV) const
 Matrix4x4 Matrix4x4::operator*(const Matrix4x4& InM) const
 {
 	Matrix4x4 Mat;
-	Mat.M11 = (M11 * InM.M11) + (M12 * InM.M21) + (M13 * InM.M31) + (M14 * InM.M41);
-	Mat.M12 = (M11 * InM.M12) + (M12 * InM.M22) + (M13 * InM.M32) + (M14 * InM.M42);
-	Mat.M13 = (M11 * InM.M13) + (M12 * InM.M23) + (M13 * InM.M33) + (M14 * InM.M43);
-	Mat.M14 = (M11 * InM.M14) + (M12 * InM.M24) + (M13 * InM.M34) + (M14 * InM.M44);
+	Mat.M[0][0] = (M[0][0] * InM.M[0][0]) + (M[0][1] * InM.M[1][0]) + (M[0][2] * InM.M[2][0]) + (M[0][3] * InM.M[3][0]);
+	Mat.M[0][1] = (M[0][0] * InM.M[0][1]) + (M[0][1] * InM.M[1][1]) + (M[0][2] * InM.M[2][1]) + (M[0][3] * InM.M[3][1]);
+	Mat.M[0][2] = (M[0][0] * InM.M[0][2]) + (M[0][1] * InM.M[1][2]) + (M[0][2] * InM.M[2][2]) + (M[0][3] * InM.M[3][2]);
+	Mat.M[0][3] = (M[0][0] * InM.M[0][3]) + (M[0][1] * InM.M[1][3]) + (M[0][2] * InM.M[2][3]) + (M[0][3] * InM.M[3][3]);
 
-	Mat.M21 = (M21 * InM.M11) + (M22 * InM.M21) + (M23 * InM.M31) + (M24 * InM.M41);
-	Mat.M22 = (M21 * InM.M12) + (M22 * InM.M22) + (M23 * InM.M32) + (M24 * InM.M42);
-	Mat.M23 = (M21 * InM.M13) + (M22 * InM.M23) + (M23 * InM.M33) + (M24 * InM.M43);
-	Mat.M24 = (M21 * InM.M14) + (M22 * InM.M24) + (M23 * InM.M34) + (M24 * InM.M44);
+	Mat.M[1][0] = (M[1][0] * InM.M[0][0]) + (M[1][1] * InM.M[1][0]) + (M[1][2] * InM.M[2][0]) + (M[1][3] * InM.M[3][0]);
+	Mat.M[1][1] = (M[1][0] * InM.M[0][1]) + (M[1][1] * InM.M[1][1]) + (M[1][2] * InM.M[2][1]) + (M[1][3] * InM.M[3][1]);
+	Mat.M[1][2] = (M[1][0] * InM.M[0][2]) + (M[1][1] * InM.M[1][2]) + (M[1][2] * InM.M[2][2]) + (M[1][3] * InM.M[3][2]);
+	Mat.M[1][3] = (M[1][0] * InM.M[0][3]) + (M[1][1] * InM.M[1][3]) + (M[1][2] * InM.M[2][3]) + (M[1][3] * InM.M[3][3]);
 
-	Mat.M31 = (M31 * InM.M11) + (M32 * InM.M21) + (M33 * InM.M31) + (M34 * InM.M41);
-	Mat.M32 = (M31 * InM.M12) + (M32 * InM.M22) + (M33 * InM.M32) + (M34 * InM.M42);
-	Mat.M33 = (M31 * InM.M13) + (M32 * InM.M23) + (M33 * InM.M33) + (M34 * InM.M43);
-	Mat.M34 = (M31 * InM.M14) + (M32 * InM.M24) + (M33 * InM.M34) + (M34 * InM.M44);
+	Mat.M[2][0] = (M[2][0] * InM.M[0][0]) + (M[2][1] * InM.M[1][0]) + (M[2][2] * InM.M[2][0]) + (M[2][3] * InM.M[3][0]);
+	Mat.M[2][1] = (M[2][0] * InM.M[0][1]) + (M[2][1] * InM.M[1][1]) + (M[2][2] * InM.M[2][1]) + (M[2][3] * InM.M[3][1]);
+	Mat.M[2][2] = (M[2][0] * InM.M[0][2]) + (M[2][1] * InM.M[1][2]) + (M[2][2] * InM.M[2][2]) + (M[2][3] * InM.M[3][2]);
+	Mat.M[2][3] = (M[2][0] * InM.M[0][3]) + (M[2][1] * InM.M[1][3]) + (M[2][2] * InM.M[2][3]) + (M[2][3] * InM.M[3][3]);
 
-	Mat.M41 = (M41 * InM.M11) + (M42 * InM.M21) + (M43 * InM.M31) + (M44 * InM.M41);
-	Mat.M42 = (M41 * InM.M12) + (M42 * InM.M22) + (M43 * InM.M32) + (M44 * InM.M42);
-	Mat.M43 = (M41 * InM.M13) + (M42 * InM.M23) + (M43 * InM.M33) + (M44 * InM.M43);
-	Mat.M44 = (M41 * InM.M14) + (M42 * InM.M24) + (M43 * InM.M34) + (M44 * InM.M44);
+	Mat.M[3][0] = (M[3][0] * InM.M[0][0]) + (M[3][1] * InM.M[1][0]) + (M[3][2] * InM.M[2][0]) + (M[3][3] * InM.M[3][0]);
+	Mat.M[3][1] = (M[3][0] * InM.M[0][1]) + (M[3][1] * InM.M[1][1]) + (M[3][2] * InM.M[2][1]) + (M[3][3] * InM.M[3][1]);
+	Mat.M[3][2] = (M[3][0] * InM.M[0][2]) + (M[3][1] * InM.M[1][2]) + (M[3][2] * InM.M[2][2]) + (M[3][3] * InM.M[3][2]);
+	Mat.M[3][3] = (M[3][0] * InM.M[0][3]) + (M[3][1] * InM.M[1][3]) + (M[3][2] * InM.M[2][3]) + (M[3][3] * InM.M[3][3]);
 
 	return Mat;
 }
@@ -160,10 +152,10 @@ Matrix4x4 Matrix4x4::operator*(const Matrix4x4& InM) const
 Matrix4x4 Matrix4x4::operator/(float Scale) const
 {
 	Matrix4x4 Mat(*this);
-	Mat.M11 /= Scale; Mat.M12 /= Scale; Mat.M13 /= Scale; Mat.M14 /= Scale;
-	Mat.M21 /= Scale; Mat.M22 /= Scale; Mat.M23 /= Scale; Mat.M24 /= Scale;
-	Mat.M31 /= Scale; Mat.M32 /= Scale; Mat.M33 /= Scale; Mat.M34 /= Scale;
-	Mat.M41 /= Scale; Mat.M42 /= Scale; Mat.M43 /= Scale; Mat.M44 /= Scale;
+	Mat.M[0][0] /= Scale; Mat.M[0][1] /= Scale; Mat.M[0][2] /= Scale; Mat.M[0][3] /= Scale;
+	Mat.M[1][0] /= Scale; Mat.M[1][1] /= Scale; Mat.M[1][2] /= Scale; Mat.M[1][3] /= Scale;
+	Mat.M[2][0] /= Scale; Mat.M[2][1] /= Scale; Mat.M[2][2] /= Scale; Mat.M[2][3] /= Scale;
+	Mat.M[3][0] /= Scale; Mat.M[3][1] /= Scale; Mat.M[3][2] /= Scale; Mat.M[3][3] /= Scale;
 
 	return Mat;
 }
@@ -188,17 +180,68 @@ Matrix4x4 Matrix4x4::CreateTransition(const Vector3& InV)
 
 Matrix4x4 Matrix4x4::CreateRotationX(float Angle)
 {
-	return Matrix4x4();
+	float Sin = DEGREE_SIN(Angle);
+	float Cos = DEGREE_COS(Angle);
+
+	return Matrix4x4(
+		1.0f, 0.0f, 0.0f, 0.0f,
+		0.0f, Cos, -Sin, 0.0f,
+		0.0f, Sin, Cos, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 Matrix4x4 Matrix4x4::CreateRotationY(float Angle)
 {
-	return Matrix4x4();
+	float Sin = DEGREE_SIN(Angle);
+	float Cos = DEGREE_COS(Angle);
+
+	return Matrix4x4(
+		Cos, 0.0f, -Sin, 0.0f,
+		0.0f, 1.0f, 0.0f, 0.0f,
+		Sin, 0.0f, Cos, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f);
 }
 
 Matrix4x4 Matrix4x4::CreateRotationZ(float Angle)
 {
-	return Matrix4x4();
+	float Sin = DEGREE_SIN(Angle);
+	float Cos = DEGREE_COS(Angle);
+
+	return Matrix4x4(
+		Cos, -Sin, 0.0f, 0.0f,
+		Sin, Cos, 0.0f, 0.0f,
+		0.0f, 0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f);
+}
+
+Matrix4x4 Matrix4x4::CreateRotation(float XAngle, float YAngle, float ZAngle)
+{
+	Matrix4x4 RotX;
+	Matrix4x4 RotY;
+	Matrix4x4 RotZ;
+
+	float Cos = DEGREE_COS(XAngle);
+	float Sin = DEGREE_SIN(XAngle);
+	RotX.M[0][0] = 1.0f;	RotX.M[0][1] = 0.0f;	RotX.M[0][2] = 0.0f;	RotX.M[0][3] = 0.0f;
+	RotX.M[1][0] = 0.0f;	RotX.M[1][1] = Cos;		RotX.M[1][2] = -Sin;	RotX.M[1][3] = 0.0f;
+	RotX.M[2][0] = 0.0f;	RotX.M[2][1] = Sin;		RotX.M[2][2] = Cos;		RotX.M[2][3] = 0.0f;
+	RotX.M[3][0] = 0.0f;	RotX.M[3][1] = 0.0f;	RotX.M[3][2] = 0.0f;	RotX.M[3][3] = 1.0f;
+
+	Cos = DEGREE_COS(YAngle);
+	Sin = DEGREE_SIN(YAngle);
+	RotY.M[0][0] = Cos;		RotY.M[0][1] = 0.0f;	RotY.M[0][2] = -Sin;	RotY.M[0][3] = 0.0f;
+	RotY.M[1][0] = 0.0f;	RotY.M[1][1] = 1.0f;	RotY.M[1][2] = -0.0f;	RotY.M[1][3] = 0.0f;
+	RotY.M[2][0] = Sin;		RotY.M[2][1] = 0.0f;	RotY.M[2][2] = Cos;		RotY.M[2][3] = 0.0f;
+	RotY.M[3][0] = 0.0f;	RotY.M[3][1] = 0.0f;	RotY.M[3][2] = 0.0f;	RotY.M[3][3] = 1.0f;
+
+	Cos = DEGREE_COS(ZAngle);
+	Sin = DEGREE_SIN(ZAngle);
+	RotZ.M[0][0] = Cos;		RotZ.M[0][1] = -Sin;	RotZ.M[0][2] = 0.0f;	RotZ.M[0][3] = 0.0f;
+	RotZ.M[1][0] = Sin;		RotZ.M[1][1] = Cos;		RotZ.M[1][2] = 0.0f;	RotZ.M[1][3] = 0.0f;
+	RotZ.M[2][0] = 0.0f;	RotZ.M[2][1] = 0.0f;	RotZ.M[2][2] = 1.0f;	RotZ.M[2][3] = 0.0f;
+	RotZ.M[3][0] = 0.0f;	RotZ.M[3][1] = 0.0f;	RotZ.M[3][2] = 0.0f;	RotZ.M[3][3] = 1.0f;
+
+	return (RotZ * (RotY * RotX));
 }
 
 Matrix4x4 Matrix4x4::CreateScale(float Scale)
@@ -228,12 +271,33 @@ Matrix4x4 Matrix4x4::CreateScale(const Vector3& InV)
 		0.0f, 0.0f, 0.0f, 1.0f);
 }
 
+Matrix4x4 Matrix4x4::CreateScreenSpace(float HalfWidth, float HalfHeight)
+{
+	return Matrix4x4(
+		HalfWidth, 0.0f, 0.0f, HalfWidth,
+		0.0f, -HalfHeight, 0.0f, HalfHeight,
+		0.0f, 0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 0.0f, 1.0f);
+}
+
+Matrix4x4 Matrix4x4::CreatePerspectiveProj(float FOV, float AspectRatio, float ZMin, float ZMax)
+{
+	float TanOfHalfFOV = DEGREE_TAN(FOV * 0.5);
+	float FocalLength = 1.0f / TanOfHalfFOV;
+	float ZRange = (ZMin - ZMax);
+	return Matrix4x4(
+		FocalLength / AspectRatio, 0.0f, 0.0f, 0.0f,
+		0.0f, FocalLength, 0.0f, 0.0f,
+		0.0f, 0.0f, (-ZMin -ZMax) / ZRange, (2.0f * ZMin * ZMax) / ZRange,
+		0.0f, 0.0f, 1.0f, 0.0f);
+}
+
 std::ostream& operator<<(std::ostream& Os, const Matrix4x4& InM)
 {
-	Os << InM.M11 << '	' << InM.M12 << '	' << InM.M13 << '	' << InM.M14 << std::endl;
-	Os << InM.M21 << '	' << InM.M22 << '	' << InM.M23 << '	' << InM.M24 << std::endl;
-	Os << InM.M31 << '	' << InM.M32 << '	' << InM.M33 << '	' << InM.M34 << std::endl;
-	Os << InM.M41 << '	' << InM.M42 << '	' << InM.M43 << '	' << InM.M44 << std::endl;
+	Os << InM.M[0][0] << '	' << InM.M[0][1] << '	' << InM.M[0][2] << '	' << InM.M[0][3] << std::endl;
+	Os << InM.M[1][0] << '	' << InM.M[1][1] << '	' << InM.M[1][2] << '	' << InM.M[1][3] << std::endl;
+	Os << InM.M[2][0] << '	' << InM.M[2][1] << '	' << InM.M[2][2] << '	' << InM.M[2][3] << std::endl;
+	Os << InM.M[3][0] << '	' << InM.M[3][1] << '	' << InM.M[3][2] << '	' << InM.M[3][3] << std::endl;
 
 	return Os;
 }
@@ -242,10 +306,10 @@ std::string Matrix4x4::ToString() const
 {
 	using namespace std;
 	string Result = 
-		to_string(M11) + "	" + to_string(M12) + "	" + to_string(M13) + "	" + to_string(M14) + "\n"
-		+ to_string(M21) + "	" + to_string(M22) + "	" + to_string(M23) + "	" + to_string(M24) + "\n"
-		+ to_string(M31) + "	" + to_string(M32) + "	" + to_string(M33) + "	" + to_string(M34) + "\n"
-		+ to_string(M41) + "	" + to_string(M42) + "	" + to_string(M43) + "	" + to_string(M44) + "\n";
+		to_string(M[0][0]) + "	" + to_string(M[0][1]) + "	" + to_string(M[0][2]) + "	" + to_string(M[0][3]) + "\n"
+		+ to_string(M[1][0]) + "	" + to_string(M[1][1]) + "	" + to_string(M[1][2]) + "	" + to_string(M[1][3]) + "\n"
+		+ to_string(M[2][0]) + "	" + to_string(M[2][1]) + "	" + to_string(M[2][2]) + "	" + to_string(M[2][3]) + "\n"
+		+ to_string(M[3][0]) + "	" + to_string(M[3][1]) + "	" + to_string(M[3][2]) + "	" + to_string(M[3][3]) + "\n";
 
 	return Result;
 }

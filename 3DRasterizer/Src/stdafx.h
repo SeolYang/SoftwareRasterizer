@@ -1,16 +1,20 @@
 #pragma once
+#define CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
 
 #define WIN32_MEAN_AND_LEAN
 #include <Windows.h>
-#include <cstdlib>
-#include <string>
-#include <vector>
-#include <memory>
-
 #include <d3d9.h>
 
-#include "MathUtils.h"
+#include <iostream>
+#include <exception>
+#include <type_traits>
+#include <string>
+#include <vector>
+#include <chrono>
+#include <random>
+#include <memory>
 
-#ifdef _MSC_VER
-#define MS_ALIGN(N) __declspec(align(N))
-#endif
+#include "MathUtils.h"
+#include "Memory.h"
